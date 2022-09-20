@@ -6,7 +6,7 @@ on:
       - opened
 jobs:
   label-issues:
-    runs-on: ubuntu-latests
+    runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
