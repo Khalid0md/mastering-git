@@ -7,9 +7,10 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'run in mode: debug'
+        description: 'label: debug instead of: triage'
         required: true
         type: boolean
+
   
 jobs:
   label-issues:
@@ -19,6 +20,13 @@ jobs:
     steps:
       - name: Label issues
         uses: andymckay/labeler@1.0.2
+        if: ${{ inputs.logLevel == 0}}
         with:
           add-labels: "triage"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Label issues with debug
+        uses: andymckay/labeler@1.0.2
+        if: ${{ inputs.logLevel == 1}}
+        with: 
+          add-labels: "debug"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
