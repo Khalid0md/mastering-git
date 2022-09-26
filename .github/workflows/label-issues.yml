@@ -10,13 +10,6 @@ on:
         description: 'run in mode: debug'
         required: true
         type: boolean
-
-      print_tags:
-        description: 'print to STDOUT'
-        required: true 
-        type: boolean 
-
-
   
 jobs:
   label-issues:
