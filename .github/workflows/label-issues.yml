@@ -17,13 +17,8 @@ jobs:
     steps:
       - name: Label issues
         uses: andymckay/labeler@1.0.2
-        if: ${{ !inputs.logLevel }}
         with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          if: ${{ inputs.logLevel }}
           add-labels: "triage"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Label issues with debug
-        uses: andymckay/labeler@1.0.2
-        if: ${{ inputs.logLevel }}
-        with: 
-          add-labels: "debug"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+         
