@@ -7,6 +7,9 @@ on:
         description: 'list files'
         required: true
         type: boolean
+        
+env: 
+  DAY_OF: monday
 
 jobs:
   explore-first-github-workflow:
@@ -21,7 +24,8 @@ jobs:
       - run: echo "💻  The workflow is now ready to test your code on the runner!"
       - name: list files in the repository
         if: ${{ inputs.logLevel }}
+          $DAY_OF = tuesday
         run: |
-          ls ${{ github.workspace }}
+          echo "This job will be completed on $DAY_OF"
       - run: echo "🍏 This jobs status is ${{ job.status }}."
 
