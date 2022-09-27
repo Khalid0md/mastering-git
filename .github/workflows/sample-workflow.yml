@@ -24,7 +24,7 @@ jobs:
       - run: echo "💻  The workflow is now ready to test your code on the runner!"
       - name: configure env variable
         if: ${{ inputs.logLevel }}
-        run: echo "{{ env.DAY_OF }}='tuesday'" >> $GITHUB_ENV
+        run: echo "DAY_OF='tuesday'" >> $GITHUB_ENV
       - name: echo day it will get done
         run: |
           echo "This job will be completed on $DAY_OF"
